@@ -5,8 +5,9 @@ using SharpTestsEx;
 namespace Grappachu.Interop.IbmMQ.Test
 {
     [TestFixture]
-    public class LevelParserTest
+    public class IbmMqConnectionTypeParserTest
     {
+       
       
     }
 }

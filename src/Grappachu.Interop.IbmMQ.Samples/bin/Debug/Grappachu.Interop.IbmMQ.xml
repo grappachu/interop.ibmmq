@@ -1,0 +1,236 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Grappachu.Interop.IbmMQ</name>
+    </assembly>
+    <members>
+        <member name="T:Grappachu.Interop.IbmMQ.IbmMqConnectionType">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Grappachu.Interop.IbmMQ.IbmMqConnectionType.Local">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Grappachu.Interop.IbmMQ.IbmMqConnectionType.Client">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Grappachu.Interop.IbmMQ.IbmMqConnectionTypeParser">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Grappachu.Interop.IbmMQ.IbmMqConnectionTypeParser.Parse(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="stringvalue"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentException"></exception>
+        </member>
+        <member name="T:Grappachu.Interop.IbmMQ.IbmMqAbstractConsumer`1">
+            <summary>
+                This is the base class to inherit from when creating a consumer based on IbmMQ
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Grappachu.Interop.IbmMQ.IbmMqAbstractConsumer`1.#ctor(Grappachu.Interop.IbmMQ.IbmMqSettings,System.Int32)">
+            <summary>
+                Acrivates a new instance of <see cref="T:Grappachu.Interop.IbmMQ.IbmMqAbstractConsumer`1" />
+            </summary>
+            <param name="settings"></param>
+            <param name="pollingTimeMills"></param> 
+        </member>
+        <member name="M:Grappachu.Interop.IbmMQ.IbmMqAbstractConsumer`1.Dispose">
+            <inheritdoc />
+        </member>
+        <member name="M:Grappachu.Interop.IbmMQ.IbmMqAbstractConsumer`1.OnConsumingMessages(System.Object,System.Timers.ElapsedEventArgs)">
+            <summary>
+                Gets multiple rows of received data and cosumes them
+            </summary>
+            <param name="sender"></param>
+            <param name="elapsedEventArgs"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Grappachu.Interop.IbmMQ.IbmMqAbstractConsumer`1.OnConsumingSingleMessage(IBM.XMS.ISession,IBM.XMS.IDestination)">
+            <summary>
+                Gets a single row of received data and cosumes it
+            </summary>
+            <param name="session"></param>
+            <param name="destination"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Grappachu.Interop.IbmMQ.IbmMqAbstractConsumer`1.OnDeserializeMessage(System.String)">
+            <summary>
+                Deserialize the received message into {T}
+            </summary>
+            <param name="messageContent"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Grappachu.Interop.IbmMQ.IbmMqAbstractConsumer`1.OnError(System.Exception)">
+            <inheritdoc />
+        </member>
+        <member name="M:Grappachu.Interop.IbmMQ.IbmMqAbstractConsumer`1.Dispose(System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="E:Grappachu.Interop.IbmMQ.IbmMqAbstractConsumer`1.MessageReceived">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Grappachu.Interop.IbmMQ.IbmMqAbstractConsumer`1.BeginConsume">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Grappachu.Interop.IbmMQ.IbmMqAbstractConsumer`1.EndConsume">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Grappachu.Interop.IbmMQ.IbmMqAbstractConsumer`1.IsConsuming">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Grappachu.Interop.IbmMQ.IbmMqAbstractConsumer`1.ConsumeOnce">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Grappachu.Interop.IbmMQ.IbmMqAbstractPublisher`1">
+            <summary>
+                This is the base class to inherit from when creating a publihser based on IbmMQ
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Grappachu.Interop.IbmMQ.IbmMqAbstractPublisher`1.#ctor(Grappachu.Interop.IbmMQ.IbmMqSettings)">
+            <summary>
+                Activates a new instance of <see cref="T:Grappachu.Interop.IbmMQ.IbmMqAbstractPublisher`1" />
+            </summary>
+            <param name="settings"></param>
+        </member>
+        <member name="M:Grappachu.Interop.IbmMQ.IbmMqAbstractPublisher`1.Publish(`0)">
+            <inheritdoc />
+        </member>
+        <member name="M:Grappachu.Interop.IbmMQ.IbmMqAbstractPublisher`1.OnSerializeMessage(`0)">
+            <summary>
+                Serializes the message to a string before sending and sets its content type
+            </summary>
+            <param name="messageObject"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Grappachu.Interop.IbmMQ.IbmMqAbstractPublisher`1.OnPublishing(System.String,IBM.XMS.IConnection)">
+            <summary>
+                Publishes a message on the exchange
+            </summary>
+            <param name="messageContent"></param>
+            <param name="connection"></param>
+        </member>
+        <member name="T:Grappachu.Interop.IbmMQ.IbmMqClientBase">
+            <summary>
+                Defines a basic client for both publisher and consumer
+            </summary>
+        </member>
+        <member name="F:Grappachu.Interop.IbmMQ.IbmMqClientBase._settings">
+            <summary>
+                Gets the settings collection used by for this client
+            </summary>
+        </member>
+        <member name="M:Grappachu.Interop.IbmMQ.IbmMqClientBase.#ctor(Grappachu.Interop.IbmMQ.IbmMqSettings)">
+            <summary>
+                Acrivates a new instance of <see cref="T:Grappachu.Interop.IbmMQ.IbmMqClientBase" />
+            </summary>
+            <param name="settings"></param>
+        </member>
+        <member name="M:Grappachu.Interop.IbmMQ.IbmMqClientBase.GetConnectionFactory">
+            <summary>
+                Gets a new connection factory for this client
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Grappachu.Interop.IbmMQ.IbmMqSettings">
+            <summary>
+            Define a set of parameters to configure a connection to a IbmMQ Exchange
+            </summary>
+        </member>
+        <member name="P:Grappachu.Interop.IbmMQ.IbmMqSettings.HostName">
+            <summary>
+            Name of server
+            </summary>
+        </member>
+        <member name="P:Grappachu.Interop.IbmMQ.IbmMqSettings.Port">
+            <summary>
+            Port to be used. If null the system default will be used
+            </summary>
+        </member>
+        <member name="P:Grappachu.Interop.IbmMQ.IbmMqSettings.User">
+            <summary>
+            username to connect the queue
+            </summary>
+        </member>
+        <member name="P:Grappachu.Interop.IbmMQ.IbmMqSettings.Password">
+            <summary>
+            password to connect the queue
+            </summary>
+        </member>
+        <member name="P:Grappachu.Interop.IbmMQ.IbmMqSettings.QueueName">
+            <summary>
+            the name of the queue
+            </summary>
+        </member>
+        <member name="P:Grappachu.Interop.IbmMQ.IbmMqSettings.ConnectionMode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Grappachu.Interop.IbmMQ.IbmMqSettings.Channel">
+            <summary>
+            the name of the channel
+            </summary>
+        </member>
+        <member name="P:Grappachu.Interop.IbmMQ.IbmMqSettings.QueueManager">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Grappachu.Interop.IbmMQ.IbmMqSettings.BrokerVersion">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Grappachu.Interop.IbmMQ.QueueMessage`1">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="P:Grappachu.Interop.IbmMQ.QueueMessage`1.GiveAck">
+            <summary>
+            Indica se per questo messaggio verrà inviato Ack (true) o Nack (false)
+            </summary>
+        </member>
+        <member name="P:Grappachu.Interop.IbmMQ.QueueMessage`1.MessageId">
+            <summary>
+            identifier of the message
+            </summary>
+        </member>
+        <member name="P:Grappachu.Interop.IbmMQ.QueueMessage`1.Value">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Grappachu.Interop.IbmMQ.QueueMessage`1.#ctor(System.String,`0)">
+            <summary>
+            
+            </summary>
+            <param name="messageId"></param>
+            <param name="value"></param>
+        </member>
+    </members>
+</doc>

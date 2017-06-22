@@ -34,11 +34,7 @@ namespace Grappachu.Interop.IbmMQ
             _timer.Elapsed += OnConsumingMessages;
         }
 
-       
-
-
-
-        /// <inheritdoc />
+       /// <inheritdoc />
         public void Dispose()
         {
             Dispose(true);
